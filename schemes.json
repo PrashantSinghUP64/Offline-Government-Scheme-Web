@@ -1,0 +1,149 @@
+[
+  {
+    "name": "PM Kisan Yojana",
+    "age": 18,
+    "occupation": "farmer",
+    "state": "UP",
+    "description": "₹6000 yearly support for farmers."
+  },
+  {
+    "name": "Beti Bachao Beti Padhao",
+    "age": 10,
+    "occupation": "women",
+    "state": "MP",
+    "description": "Support for girl child education."
+  },
+  {
+    "name": "Ayushman Bharat",
+    "age": 25,
+    "occupation": "unemployed",
+    "state": "MH",
+    "description": "Health insurance of ₹5 lakh per family per year."
+  },
+  {
+    "name": "Startup India",
+    "age": 21,
+    "occupation": "entrepreneur",
+    "state": "KA",
+    "description": "Support and funding for startups and innovations."
+  },
+  {
+    "name": "Pradhan Mantri Awas Yojana",
+    "age": 30,
+    "occupation": "laborer",
+    "state": "RJ",
+    "description": "Subsidy on housing for low-income families."
+  },
+  {
+    "name": "Ujjwala Yojana",
+    "age": 28,
+    "occupation": "housewife",
+    "state": "BR",
+    "description": "Free LPG connections for women in BPL families."
+  },
+  {
+    "name": "Skill India Mission",
+    "age": 20,
+    "occupation": "student",
+    "state": "TN",
+    "description": "Free skill development courses for youth."
+  },
+  {
+    "name": "MUDRA Loan Scheme",
+    "age": 22,
+    "occupation": "entrepreneur",
+    "state": "GJ",
+    "description": "Loans up to ₹10 lakh for micro/small businesses."
+  },
+  {
+    "name": "Digital India Internship",
+    "age": 21,
+    "occupation": "student",
+    "state": "DL",
+    "description": "Internship opportunity in digital governance."
+  },
+  {
+    "name": "Sukanya Samriddhi Yojana",
+    "age": 5,
+    "occupation": "student",
+    "state": "PB",
+    "description": "High-interest savings scheme for girl child’s future education."
+  },
+  {
+    "name": "PM Vishwakarma Yojana",
+    "age": 25,
+    "occupation": "artisan",
+    "state": "WB",
+    "description": "Training and financial aid for traditional artisans and craftsmen."
+  },
+  {
+    "name": "Saubhagya Yojana",
+    "age": 21,
+    "occupation": "housewife",
+    "state": "OR",
+    "description": "Free electricity connections to poor households."
+  },
+  {
+    "name": "Khelo India Youth Scheme",
+    "age": 16,
+    "occupation": "student",
+    "state": "MH",
+    "description": "Scholarships and training for young sports talents."
+  },
+  {
+    "name": "National Apprenticeship Promotion Scheme",
+    "age": 19,
+    "occupation": "laborer",
+    "state": "HR",
+    "description": "Govt. support for apprenticeship training and stipend."
+  },
+  {
+    "name": "Deendayal Antyodaya Yojana",
+    "age": 18,
+    "occupation": "unemployed",
+    "state": "UP",
+    "description": "Skill training and employment generation for urban poor."
+  },
+  {
+    "name": "Jan Dhan Yojana",
+    "age": 18,
+    "occupation": "housewife",
+    "state": "CH",
+    "description": "Zero balance savings account with insurance and pension benefits."
+  },
+  {
+    "name": "E-Shram Portal",
+    "age": 20,
+    "occupation": "laborer",
+    "state": "WB",
+    "description": "Centralized portal for unorganized workers with social benefits."
+  },
+  {
+    "name": "Mission Shakti",
+    "age": 18,
+    "occupation": "women",
+    "state": "UP",
+    "description": "Safety, protection, and empowerment of women and girls."
+  },
+  {
+    "name": "National Pension Scheme (NPS)",
+    "age": 30,
+    "occupation": "unemployed",
+    "state": "AP",
+    "description": "Voluntary retirement savings scheme with government backing."
+  },
+  {
+    "name": "Padhna Likhna Abhiyan",
+    "age": 15,
+    "occupation": "student",
+    "state": "JK",
+    "description": "Adult education program for literacy and numeracy."
+  },
+  {
+    "name": "PM Garib Kalyan Ann Yojana",
+    "age": 18,
+    "occupation": "laborer",
+    "state": "AS",
+    "description": "Free ration supply to poor households."
+  }
+]
