@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RuralConnect – Scheme Finder</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body.dark {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    .card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      margin-bottom: 1rem;
+    }
+    body.dark .card {
+      background: #1e1e1e;
+      color: #f0f0f0;
+      box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 300px;
+      border-radius: 10px;
+    }
+    body.dark .modal-content {
+      background-color: #2c2c2c;
+      color: #fff;
+      border-color: #444;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    body.dark .close:hover,
+    body.dark .close:focus {
+      color: white;
+    }
+    input, select, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    body.dark input,
+    body.dark select,
+    body.dark button {
+      background-color: #333;
+      color: #fff;
+      border-color: #555;
+    }
+    button {
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    body.dark button:hover {
+      background-color: #ffffff;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 1rem;
+    }
+    header, footer {
+      text-align: center;
+      padding: 1rem;
+    }
+    .filter-group {
+      margin-bottom: 1rem;
+    }
+    .full-width {
+      width: 100%;
+    }
+    .toggle-container {
+      margin: 10px 0;
+    }
+    .login-container {
+      margin: 10px 0;
+    }
+    .login-container a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    body.dark .login-container a {
+      color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="toggleLoginModal()">&times;</span>
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="handleLogin()">Login</button>
+    <p id="loginMessage"></p>
+    <p>Don't have an account? <a href="#" onclick="openRegisterModal()">Register here</a></p>
+  </div>
+</div>
+
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="toggleRegisterModal()">&times;</span>
+    <h2>Register</h2>
+    <input type="text" id="regUsername" placeholder="Choose a username" />
+    <input type="password" id="regPassword" placeholder="Choose a password" />
+    <button onclick="handleRegister()">Register</button>
+    <p id="registerMessage"></p>
+  </div>
+</div>
+
+  <header>
+    <h1>🌾 RuralConnect</h1>
+    <p>Your gateway to government schemes</p>
+    <div class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider round"></span>
+      </label>
+    </div>
+    <div class="login-container">
+      <a href="#" onclick="toggleLoginModal()">Login</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="filters">
+      <div class="filter-group">
+        <label for="age">👤 Age</label>
+        <input type="number" id="age" placeholder="Enter your age" />
+      </div>
+
+      <div class="filter-group">
+        <label for="occupation">💼 Occupation</label>
+        <select id="occupation">
+          <option value="">Select Occupation</option>
+          <option value="farmer">Farmer</option>
+          <option value="student">Student</option>
+          <option value="women">Women</option>
+          <option value="entrepreneur">Entrepreneur</option>
+          <option value="laborer">Laborer</option>
+          <option value="housewife">Housewife</option>
+          <option value="unemployed">Unemployed</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="state">📍 State</label>
+        <select id="state">
+          <option value="">Select State</option>
+          <option value="UP">Uttar Pradesh</option>
+          <option value="MP">Madhya Pradesh</option>
+          <option value="BR">Bihar</option>
+          <option value="MH">Maharashtra</option>
+          <option value="KA">Karnataka</option>
+          <option value="RJ">Rajasthan</option>
+          <option value="TN">Tamil Nadu</option>
+        </select>
+      </div>
+
+      <div class="filter-group full-width">
+        <button onclick="filterSchemes()">🔍 Find Schemes</button>
+      </div>
+    </section>
+
+    <section id="results">
+      <!-- Scheme cards will be dynamically inserted here -->
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with by Prashant Kumar Singh | © 2025 RuralConnect</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    if (isDark) document.body.classList.add('dark');
+    if (toggle) toggle.checked = isDark;
+
+    if (toggle) {
+      toggle.addEventListener('change', () => {
+        document.body.classList.toggle('dark');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+      });
+    }
+
+    function toggleLoginModal() {
+      const modal = document.getElementById('loginModal');
+      modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function toggleRegisterModal() {
+      const modal = document.getElementById('registerModal');
+      modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function openRegisterModal() {
+      toggleLoginModal();
+      toggleRegisterModal();
+    }
+
+    function handleRegister() {
+      const regUsername = document.getElementById('regUsername').value;
+      const regPassword = document.getElementById('regPassword').value;
+      const message = document.getElementById('registerMessage');
+
+      if (!regUsername || !regPassword) {
+        message.textContent = 'Please fill all fields';
+        message.style.color = 'red';
+        return;
+      }
+
+      localStorage.setItem('user', JSON.stringify({ username: regUsername, password: regPassword }));
+      message.textContent = 'Registered successfully! Please login.';
+      message.style.color = 'green';
+      setTimeout(() => {
+        toggleRegisterModal();
+        toggleLoginModal();
+      }, 1000);
+    }
+
+    function handleLogin() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const message = document.getElementById('loginMessage');
+
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user && user.username === username && user.password === password) {
+        message.textContent = 'Login successful!';
+        message.style.color = 'green';
+        setTimeout(() => {
+          toggleLoginModal();
+          window.location.href = 'dashboard.html';
+        }, 1000);
+      } else {
+        message.textContent = 'Invalid credentials';
+        message.style.color = 'red';
+      }
+    }
+
+    function filterSchemes() {
+      const age = parseInt(document.getElementById('age').value);
+      const occupation = document.getElementById('occupation').value;
+      const state = document.getElementById('state').value;
+      const results = document.getElementById('results');
+
+      const dummySchemes = [
+        {
+          title: "Kisan Samman Nidhi",
+          desc: "Income support to all farmer families with cultivable land.",
+          tags: ["farmer", "UP", "MH", "RJ"],
+          ageRange: [18, 60]
+        },
+        {
+          title: "Student Scholarship Yojana",
+          desc: "Scholarship for students from rural areas.",
+          tags: ["student", "BR", "MP", "KA"],
+          ageRange: [14, 28]
+        },
+        {
+          title: "Women Empowerment Scheme",
+          desc: "Financial support and training programs for women.",
+          tags: ["women", "TN", "KA", "UP"],
+          ageRange: [18, 55]
+        }
+      ];
+
+      results.innerHTML = "";
+
+      const matchedSchemes = dummySchemes.filter(scheme => {
+        const ageMatch = !age || (scheme.ageRange && age >= scheme.ageRange[0] && age <= scheme.ageRange[1]);
+        const occupationMatch = !occupation || scheme.tags.includes(occupation);
+        const stateMatch = !state || scheme.tags.includes(state);
+
+        return ageMatch && occupationMatch && stateMatch;
+      });
+
+      if (matchedSchemes.length === 0) {
+        results.innerHTML = `<p>No schemes found matching your criteria.</p>`;
+        return;
+      }
+
+      matchedSchemes.forEach(scheme => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `<h3>${scheme.title}</h3><p>${scheme.desc}</p>`;
+        results.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
