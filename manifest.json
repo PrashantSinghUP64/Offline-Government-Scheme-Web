@@ -1,7 +1,7 @@
 {
     "name": "RuralConnect – Govt Scheme Finder",
     "short_name": "RuralConnect",
-    "description": "Helping rural citizens easily find government schemes based on age, occupation, and location.",
+    "description": " rural citizens easily find government schemes based on age, occupation, and location.",
     "start_url": "index.html",
     "display": "standalone",
     "orientation": "portrait",
