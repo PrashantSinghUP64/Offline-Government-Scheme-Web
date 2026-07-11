@@ -1,4 +1,4 @@
-let schemes = [];
+ schemes = [];
 
 // Fetch schemes from JSON file
 fetch('schemes.json')
